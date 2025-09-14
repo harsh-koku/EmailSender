@@ -236,8 +236,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 Need help? Here are your options:
 
 - 📚 **Documentation**: Check this README and inline comments
-- 🐛 **Issues**: [Report bugs or request features](https://github.com/yourusername/EmailSender/issues)
-- 💬 **Discussions**: [Join community discussions](https://github.com/yourusername/EmailSender/discussions)
+- 🐛 **Issues**: [Report bugs or request features](https://github.com/harsh-koku/EmailSender/issues)
+- 💬 **Discussions**: [Join community discussions](https://github.com/harsh-koku/EmailSender/discussions)
 
 ---
 
