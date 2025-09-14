@@ -1,0 +1,173 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+logs/
+
+# Package Files
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE Files
+## IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+## Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+.project
+.externalToolBuilders/
+*.launch
+.pydevproject
+.cproject
+.autotools
+.factorypath
+.buildpath
+.target
+.tern-project
+.texlipse
+.springBeans
+.recommenders/
+.apt_generated/
+.apt_generated_test/
+.cache-main
+.scala_dependencies
+.worksheet
+
+## VS Code
+.vscode/
+*.code-workspace
+
+## NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# OS Generated Files
+## Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+## macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# Application Data
+## Email data files (exclude user data, keep samples)
+*.csv
+*.xlsx
+!sample-*.csv
+!test-*.csv
+!emails.csv
+
+## Application generated data
+/data/
+/backups/
+/exports/
+
+## User settings and history (exclude personal data)
+/EmailSender/
+~/.EmailSender/
+
+## Temporary files
+*.tmp
+*.temp
+*.pid
+*.seed
+*.pid.lock
+
+# Runtime and Environment
+## Java
+hs_err_pid*
+replay_pid*
+
+## Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Security
+## Exclude any credential files
+*credentials*
+*password*
+*secret*
+.secrets
+
+# Test coverage reports
+jacoco.exec
+/coverage/
+
+# Keep sample files for demonstration
+!sample-emails.csv
+!test-emails.csv

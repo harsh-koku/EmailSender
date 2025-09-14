@@ -1,0 +1,7 @@
+📧 Email Sender Pro Icon
+========================
+
+This file serves as a placeholder for the application icon.
+In a production application, you would replace this with a proper .png or .ico file.
+
+For now, the application will run without an icon, which is perfectly acceptable.

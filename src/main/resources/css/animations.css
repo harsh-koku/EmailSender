@@ -1,0 +1,384 @@
+/* Animation Definitions */
+
+/* Smooth transitions for all interactive elements */
+.modern-button,
+.btn-primary,
+.btn-secondary,
+.btn-outline,
+.btn-ghost,
+.btn-icon,
+.navigation-item,
+.dashboard-card,
+.glass-card,
+.modern-text-field,
+.modern-text-area {
+    -fx-transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Hover animations */
+.hover-scale {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.hover-scale:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+
+.hover-lift {
+    -fx-translate-y: 0;
+}
+
+.hover-lift:hover {
+    -fx-translate-y: -2px;
+}
+
+/* Button glow effect */
+.btn-glow {
+    -fx-effect: null;
+}
+
+.btn-glow:hover {
+    -fx-effect: dropshadow(gaussian, derive(-fx-primary, 50%), 15, 0.6, 0, 0);
+}
+
+/* Card animations */
+.animated-card {
+    -fx-opacity: 0.0;
+    -fx-translate-y: 20px;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.animated-card.fade-in {
+    -fx-opacity: 1.0;
+    -fx-translate-y: 0px;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Sidebar animations */
+.sidebar-collapsed {
+    -fx-pref-width: 60px;
+    -fx-min-width: 60px;
+    -fx-max-width: 60px;
+}
+
+.sidebar-expanded {
+    -fx-pref-width: 240px;
+    -fx-min-width: 240px;
+    -fx-max-width: 240px;
+}
+
+/* Navigation item animations */
+.navigation-item {
+    -fx-background-radius: 8px;
+    -fx-background-insets: 4px;
+    -fx-padding: 12px 16px;
+    -fx-cursor: hand;
+}
+
+.navigation-item .icon {
+    -fx-transition: all 0.2s ease-out;
+}
+
+.navigation-item:hover .icon {
+    -fx-rotate: 5deg;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.navigation-item .text {
+    -fx-opacity: 1.0;
+}
+
+.sidebar-collapsed .navigation-item .text {
+    -fx-opacity: 0.0;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% { -fx-scale-x: 1.0; -fx-scale-y: 1.0; }
+    50% { -fx-scale-x: 1.05; -fx-scale-y: 1.05; }
+    100% { -fx-scale-x: 1.0; -fx-scale-y: 1.0; }
+}
+
+.pulse {
+    -fx-animation: pulse 2s infinite;
+}
+
+/* Shake animation for error states */
+@keyframes shake {
+    0%, 100% { -fx-translate-x: 0; }
+    10%, 30%, 50%, 70%, 90% { -fx-translate-x: -2px; }
+    20%, 40%, 60%, 80% { -fx-translate-x: 2px; }
+}
+
+.shake {
+    -fx-animation: shake 0.5s;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% { 
+        -fx-translate-y: 0;
+        -fx-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+    40%, 43% { 
+        -fx-translate-y: -15px;
+        -fx-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    }
+    70% { 
+        -fx-translate-y: -7px;
+        -fx-animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    }
+    90% { -fx-translate-y: -2px; }
+}
+
+.bounce {
+    -fx-animation: bounce 1s;
+}
+
+/* Fade animations */
+.fade-in {
+    -fx-opacity: 0.0;
+}
+
+.fade-in.visible {
+    -fx-opacity: 1.0;
+}
+
+.fade-out {
+    -fx-opacity: 1.0;
+}
+
+.fade-out.hidden {
+    -fx-opacity: 0.0;
+}
+
+/* Slide animations */
+.slide-in-left {
+    -fx-translate-x: -100%;
+}
+
+.slide-in-left.visible {
+    -fx-translate-x: 0%;
+}
+
+.slide-in-right {
+    -fx-translate-x: 100%;
+}
+
+.slide-in-right.visible {
+    -fx-translate-x: 0%;
+}
+
+.slide-in-up {
+    -fx-translate-y: 100%;
+}
+
+.slide-in-up.visible {
+    -fx-translate-y: 0%;
+}
+
+.slide-in-down {
+    -fx-translate-y: -100%;
+}
+
+.slide-in-down.visible {
+    -fx-translate-y: 0%;
+}
+
+/* Zoom animations */
+.zoom-in {
+    -fx-scale-x: 0.0;
+    -fx-scale-y: 0.0;
+    -fx-opacity: 0.0;
+}
+
+.zoom-in.visible {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-opacity: 1.0;
+}
+
+/* Rotation animations */
+@keyframes spin {
+    from { -fx-rotate: 0deg; }
+    to { -fx-rotate: 360deg; }
+}
+
+.spin {
+    -fx-animation: spin 1s linear infinite;
+}
+
+.rotate-hover {
+    -fx-rotate: 0deg;
+}
+
+.rotate-hover:hover {
+    -fx-rotate: 180deg;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    -fx-progress-color: #2563eb;
+    -fx-background-color: transparent;
+}
+
+@keyframes spinner {
+    0% { -fx-rotate: 0deg; }
+    100% { -fx-rotate: 360deg; }
+}
+
+.spinner {
+    -fx-animation: spinner 1s linear infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+    0% { -fx-background-position: -1000px 0; }
+    100% { -fx-background-position: 1000px 0; }
+}
+
+.shimmer {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-background-size: 1000px 100%;
+    -fx-animation: shimmer 2s infinite linear;
+}
+
+/* Button press animation */
+.btn-press {
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+.btn-press:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* Tab animations */
+.tab-pane .tab {
+    -fx-background-radius: 8px 8px 0 0;
+    -fx-background-insets: 0 0 1 0;
+    -fx-padding: 12px 20px;
+}
+
+.tab-pane .tab:hover {
+    -fx-background-color: -fx-hover-bg;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: -fx-surface;
+    -fx-border-color: -fx-primary -fx-primary transparent -fx-primary;
+    -fx-border-width: 2px 2px 0 2px;
+}
+
+/* Progress bar animations */
+.animated-progress .bar {
+    -fx-background-color: #2563eb;
+    -fx-background-size: 200% 100%;
+    -fx-animation: progress-flow 2s infinite linear;
+}
+
+@keyframes progress-flow {
+    0% { -fx-background-position: 200% 0; }
+    100% { -fx-background-position: -200% 0; }
+}
+
+/* Tooltip animations */
+.tooltip {
+    -fx-opacity: 0.0;
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+.tooltip.showing {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Menu animations */
+.context-menu {
+    -fx-opacity: 0.0;
+    -fx-scale-x: 0.95;
+    -fx-scale-y: 0.95;
+}
+
+.context-menu.showing {
+    -fx-opacity: 1.0;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+
+/* Notification animations */
+.notification {
+    -fx-translate-x: 100%;
+    -fx-opacity: 0.0;
+}
+
+.notification.show {
+    -fx-translate-x: 0%;
+    -fx-opacity: 1.0;
+}
+
+.notification.hide {
+    -fx-translate-x: 100%;
+    -fx-opacity: 0.0;
+}
+
+/* Chart animations */
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart .chart-series-area-line {
+    -fx-stroke-width: 2px;
+    -fx-effect: dropshadow(gaussian, derive(-fx-stroke, -50%), 4, 0.0, 0, 1);
+}
+
+.chart .chart-series-area-fill {
+    -fx-fill: rgba(37, 99, 235, 0.3);
+    -fx-opacity: 0.3;
+}
+
+/* Staggered entrance animations */
+.stagger-1 { -fx-animation-delay: 0.1s; }
+.stagger-2 { -fx-animation-delay: 0.2s; }
+.stagger-3 { -fx-animation-delay: 0.3s; }
+.stagger-4 { -fx-animation-delay: 0.4s; }
+.stagger-5 { -fx-animation-delay: 0.5s; }
+
+/* Performance optimizations */
+.gpu-accelerated {
+    -fx-cache-hint: speed;
+    -fx-effect: null;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .modern-button,
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline,
+    .btn-ghost,
+    .btn-icon,
+    .navigation-item,
+    .dashboard-card,
+    .glass-card,
+    .modern-text-field,
+    .modern-text-area {
+        -fx-transition: none;
+    }
+    
+    .pulse,
+    .bounce,
+    .spin,
+    .spinner,
+    .shimmer {
+        -fx-animation: none;
+    }
+}

@@ -1,0 +1,323 @@
+/* Dark Theme Colors */
+.root {
+    /* Primary Colors */
+    -fx-primary: #3b82f6;
+    -fx-primary-hover: #2563eb;
+    -fx-primary-pressed: #1d4ed8;
+    -fx-primary-text: #ffffff;
+    
+    /* Secondary Colors */
+    -fx-secondary: #374151;
+    -fx-secondary-hover: #4b5563;
+    -fx-secondary-text: #d1d5db;
+    -fx-secondary-border: #4b5563;
+    -fx-secondary-border-hover: #6b7280;
+    
+    /* Success Colors */
+    -fx-success: #10b981;
+    -fx-success-hover: #059669;
+    -fx-success-text: #ffffff;
+    
+    /* Warning Colors */
+    -fx-warning: #f59e0b;
+    -fx-warning-hover: #d97706;
+    -fx-warning-text: #000000;
+    
+    /* Error Colors */
+    -fx-error: #ef4444;
+    -fx-error-hover: #dc2626;
+    -fx-error-text: #ffffff;
+    
+    /* Info Colors */
+    -fx-info: #06b6d4;
+    -fx-info-hover: #0891b2;
+    -fx-info-text: #ffffff;
+    
+    /* Surface Colors */
+    -fx-background: #0f172a;
+    -fx-surface: #1e293b;
+    -fx-surface-variant: #334155;
+    -fx-surface-elevated: #475569;
+    
+    /* Text Colors */
+    -fx-text-primary: #f8fafc;
+    -fx-text-secondary: #cbd5e1;
+    -fx-text-tertiary: #94a3b8;
+    -fx-text-disabled: #64748b;
+    
+    /* Border Colors */
+    -fx-border: #334155;
+    -fx-border-light: #475569;
+    -fx-border-dark: #1e293b;
+    -fx-border-focus: #3b82f6;
+    
+    /* Interactive Colors */
+    -fx-hover-bg: rgba(59, 130, 246, 0.1);
+    -fx-active-bg: rgba(59, 130, 246, 0.2);
+    -fx-selection-bg: rgba(59, 130, 246, 0.2);
+    -fx-selection-text: #f8fafc;
+    
+    /* Input Colors */
+    -fx-input-bg: #1e293b;
+    -fx-input-bg-focus: #334155;
+    -fx-input-border: #475569;
+    -fx-input-border-focus: #3b82f6;
+    -fx-input-text: #f8fafc;
+    -fx-input-placeholder: #94a3b8;
+    
+    /* Glassmorphism Colors */
+    -fx-glass-bg: rgba(30, 41, 59, 0.8);
+    -fx-glass-bg-hover: rgba(30, 41, 59, 0.9);
+    -fx-glass-border: rgba(71, 85, 105, 0.3);
+    -fx-glass-border-hover: rgba(71, 85, 105, 0.4);
+    
+    /* Scrollbar Colors */
+    -fx-scrollbar-track: #1e293b;
+    -fx-scrollbar-thumb: #475569;
+    -fx-scrollbar-thumb-hover: #64748b;
+    
+    /* Progress Bar Colors */
+    -fx-progress-bg: #374151;
+    -fx-progress-fill: #3b82f6;
+    
+    /* Tooltip Colors */
+    -fx-tooltip-bg: #0f172a;
+    -fx-tooltip-text: #f8fafc;
+    
+    /* Table Colors */
+    -fx-table-header-bg: #1e293b;
+    -fx-table-row-even: #0f172a;
+    -fx-table-row-odd: #1e293b;
+    
+    /* Sidebar Colors */
+    -fx-sidebar-bg: #1e293b;
+    -fx-sidebar-item-hover: rgba(59, 130, 246, 0.1);
+    -fx-sidebar-item-active: rgba(59, 130, 246, 0.15);
+    -fx-sidebar-text: #cbd5e1;
+    -fx-sidebar-text-active: #3b82f6;
+    
+    /* Card Colors */
+    -fx-card-bg: rgba(30, 41, 59, 0.9);
+    -fx-card-border: rgba(71, 85, 105, 0.3);
+    -fx-card-shadow: rgba(0, 0, 0, 0.3);
+    
+    /* Status Colors */
+    -fx-status-online: #10b981;
+    -fx-status-away: #f59e0b;
+    -fx-status-busy: #ef4444;
+    -fx-status-offline: #6b7280;
+    
+    /* Chart Colors */
+    -fx-chart-color-1: #3b82f6;
+    -fx-chart-color-2: #10b981;
+    -fx-chart-color-3: #f59e0b;
+    -fx-chart-color-4: #ef4444;
+    -fx-chart-color-5: #8b5cf6;
+    -fx-chart-color-6: #06b6d4;
+    -fx-chart-color-7: #84cc16;
+    -fx-chart-color-8: #f97316;
+    
+    /* Gradient Backgrounds - Simplified for JavaFX */
+    -fx-gradient-primary: #667eea;
+    -fx-gradient-success: #4facfe;
+    -fx-gradient-warning: #f093fb;
+    -fx-gradient-error: #ff9a9e;
+    
+    /* Special Effects - Simplified for JavaFX */
+    -fx-blur-backdrop: rgba(0, 0, 0, 0.2);
+    -fx-shimmer: rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Theme Specific Overrides */
+.main-container {
+    -fx-background-color: #0f172a;
+}
+
+.sidebar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent rgba(71, 85, 105, 0.3) transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.content-area {
+    -fx-background-color: rgba(15, 23, 42, 0.3);
+}
+
+.navigation-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-sidebar-text;
+}
+
+.navigation-item:hover {
+    -fx-background-color: -fx-sidebar-item-hover;
+    -fx-text-fill: -fx-sidebar-text-active;
+}
+
+.navigation-item.active {
+    -fx-background-color: -fx-sidebar-item-active;
+    -fx-text-fill: -fx-sidebar-text-active;
+    -fx-border-color: transparent transparent transparent -fx-primary;
+    -fx-border-width: 0 0 0 3px;
+}
+
+/* Dashboard Cards */
+.dashboard-card {
+    -fx-background-color: -fx-card-bg;
+    -fx-border-color: -fx-card-border;
+    -fx-border-width: 1px;
+    -fx-background-radius: 16px;
+    -fx-border-radius: 16px;
+    -fx-effect: dropshadow(gaussian, -fx-card-shadow, 10, 0.2, 0, 2);
+}
+
+.dashboard-card:hover {
+    -fx-effect: dropshadow(gaussian, -fx-card-shadow, 15, 0.25, 0, 4);
+    -fx-background-color: rgba(30, 41, 59, 0.95);
+    -fx-border-color: rgba(71, 85, 105, 0.4);
+}
+
+/* Status Indicators */
+.status-online { -fx-fill: -fx-status-online; }
+.status-away { -fx-fill: -fx-status-away; }
+.status-busy { -fx-fill: -fx-status-busy; }
+.status-offline { -fx-fill: -fx-status-offline; }
+
+/* Chart Styling */
+.chart-pie-label {
+    -fx-text-fill: -fx-text-secondary;
+    -fx-font-size: 12px;
+    -fx-font-weight: 500;
+}
+
+.chart-legend {
+    -fx-background-color: rgba(30, 41, 59, 0.9);
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
+    -fx-border-color: rgba(71, 85, 105, 0.3);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+}
+
+.chart-line-symbol {
+    -fx-background-color: -fx-primary;
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+}
+
+/* Header Styling */
+.header-bar {
+    -fx-background-color: rgba(30, 41, 59, 0.95);
+    -fx-border-color: transparent transparent rgba(71, 85, 105, 0.3) transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 1);
+}
+
+/* Icon Styling */
+.icon-success { -fx-text-fill: -fx-success; }
+.icon-warning { -fx-text-fill: -fx-warning; }
+.icon-error { -fx-text-fill: -fx-error; }
+.icon-info { -fx-text-fill: -fx-info; }
+.icon-primary { -fx-text-fill: -fx-primary; }
+
+/* Loading Spinner */
+.loading-spinner {
+    -fx-progress-color: -fx-primary;
+    -fx-background-color: transparent;
+}
+
+/* Context Menu */
+.context-menu {
+    -fx-background-color: rgba(30, 41, 59, 0.95);
+    -fx-background-radius: 8px;
+    -fx-border-color: rgba(71, 85, 105, 0.4);
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.0, 0, 4);
+}
+
+.context-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-text-primary;
+    -fx-padding: 8px 12px;
+}
+
+.context-menu .menu-item:focused {
+    -fx-background-color: -fx-hover-bg;
+    -fx-text-fill: -fx-text-primary;
+}
+
+/* Notification Styling */
+.notification {
+    -fx-background-color: rgba(30, 41, 59, 0.95);
+    -fx-background-radius: 12px;
+    -fx-border-color: rgba(71, 85, 105, 0.4);
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 15, 0.0, 0, 4);
+    -fx-padding: 16px;
+}
+
+.notification-success {
+    -fx-border-color: rgba(16, 185, 129, 0.4);
+    -fx-background-color: rgba(6, 78, 59, 0.3);
+}
+
+.notification-warning {
+    -fx-border-color: rgba(245, 158, 11, 0.4);
+    -fx-background-color: rgba(120, 53, 15, 0.3);
+}
+
+.notification-error {
+    -fx-border-color: rgba(239, 68, 68, 0.4);
+    -fx-background-color: rgba(127, 29, 29, 0.3);
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    -fx-background-color: #374151;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-min-width: 44px;
+    -fx-min-height: 24px;
+    -fx-max-width: 44px;
+    -fx-max-height: 24px;
+}
+
+.toggle-switch.selected {
+    -fx-background-color: -fx-primary;
+}
+
+.toggle-switch .thumb {
+    -fx-background-color: #f8fafc;
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-max-width: 20px;
+    -fx-max-height: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 4, 0.0, 0, 1);
+}
+
+/* Glow Effects for Dark Theme */
+.modern-button:hover {
+    -fx-effect: dropshadow(gaussian, derive(-fx-primary, -20%), 8, 0.3, 0, 0);
+}
+
+.btn-primary:hover {
+    -fx-effect: dropshadow(gaussian, -fx-primary, 12, 0.4, 0, 0);
+}
+
+.glass-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(59, 130, 246, 0.2), 15, 0.3, 0, 0);
+}
+
+/* Enhanced glassmorphism for dark theme */
+.glass-card {
+    -fx-background-color: rgba(30, 41, 59, 0.7);
+    -fx-border-color: rgba(71, 85, 105, 0.2);
+}
+
+.glass-card-hover:hover {
+    -fx-background-color: rgba(30, 41, 59, 0.8);
+    -fx-border-color: rgba(71, 85, 105, 0.3);
+}
