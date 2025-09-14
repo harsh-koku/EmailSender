@@ -32,6 +32,7 @@ public class EmailComposerView {
     private Button sendEmailBtn;
     private Button saveAsDraftBtn;
     private Button loadTemplateBtn;
+    private Button newEmailBtn;
     private ComboBox<EmailTemplate> templateComboBox;
     private CheckBox isHtmlCheckBox;
     private ProgressBar sendingProgress;
@@ -93,11 +94,20 @@ public class EmailComposerView {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
         
+        // New Email button in header
+        newEmailBtn = new Button("✉️ New Email");
+        newEmailBtn.getStyleClass().addAll("btn-primary", "modern-button", "header-new-email-btn");
+        newEmailBtn.setOnAction(e -> {
+            clearAll();
+            AnimationUtils.addClickEffect(newEmailBtn).play();
+        });
+        AnimationUtils.addHoverScaleEffect(newEmailBtn, 1.05);
+        
         // Status label
         statusLabel = new Label("Ready to compose");
         statusLabel.getStyleClass().addAll("body-small", "status-text");
         
-        header.getChildren().addAll(title, spacer, statusLabel);
+        header.getChildren().addAll(title, spacer, newEmailBtn, statusLabel);
         
         return header;
     }
@@ -288,8 +298,8 @@ public class EmailComposerView {
         Button previewBtn = new Button("👀 Preview");
         previewBtn.getStyleClass().addAll("btn-outline", "modern-button");
         
-        Button clearBtn = new Button("🗑️ Clear All");
-        clearBtn.getStyleClass().addAll("btn-ghost", "modern-button");
+        Button clearBtn = new Button("✉️ New Email");
+        clearBtn.getStyleClass().addAll("btn-outline", "modern-button", "new-email-btn");
         
         buttonsRow.getChildren().addAll(sendEmailBtn, saveAsDraftBtn, previewBtn, clearBtn);
         
@@ -376,7 +386,7 @@ public class EmailComposerView {
         fileSelectionLabel.setText("No file selected");
         fileSelectionLabel.getStyleClass().remove("file-selected");
         fileSelectionLabel.getStyleClass().add("file-status");
-        statusLabel.setText("All fields cleared");
+        statusLabel.setText("Ready to compose new email");
     }
     
     private void showPreview() {

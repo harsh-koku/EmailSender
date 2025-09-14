@@ -100,12 +100,15 @@ public class MainController {
     private void showDashboard() {
         if (dashboardController == null) {
             DashboardView dashboardView = new DashboardView();
-            dashboardController = new DashboardController(dashboardView);
+            dashboardController = new DashboardController(dashboardView, this::showCompose);
         }
         mainView.setContent(dashboardController.getView().getRoot());
     }
 
     private void showCompose() {
+        // Update navigation state to show compose as active
+        setActiveNavigation(mainView.getComposeBtn());
+        
         if (emailComposerController == null) {
             EmailComposerView emailComposerView = new EmailComposerView();
             emailComposerController = new EmailComposerController(emailComposerView);

@@ -18,6 +18,8 @@ import org.example.utils.AnimationUtils;
 public class DashboardView {
     
     private VBox root;
+    private javafx.scene.control.Button newEmailBtn;
+    private javafx.scene.control.Button refreshBtn;
     
     public DashboardView() {
         createDashboard();
@@ -67,15 +69,16 @@ public class DashboardView {
         HBox actions = new HBox(12);
         actions.setAlignment(Pos.CENTER_RIGHT);
         
-        javafx.scene.control.Button composeBtn = new javafx.scene.control.Button("📝 New Email");
-        composeBtn.getStyleClass().addAll("btn-primary", "modern-button");
+        newEmailBtn = new javafx.scene.control.Button("📝 New Email");
+        newEmailBtn.getStyleClass().addAll("btn-primary", "modern-button");
         
-        javafx.scene.control.Button refreshBtn = new javafx.scene.control.Button("🔄 Refresh");
+        refreshBtn = new javafx.scene.control.Button("🔄 Refresh");
         refreshBtn.getStyleClass().addAll("btn-secondary", "modern-button");
         
-        actions.getChildren().addAll(composeBtn, refreshBtn);
+        actions.getChildren().addAll(newEmailBtn, refreshBtn);
         
-        AnimationUtils.addHoverScaleEffect(composeBtn);
+        AnimationUtils.addHoverScaleEffect(newEmailBtn);
+        AnimationUtils.addHoverScaleEffect(refreshBtn);
         AnimationUtils.addHoverScaleEffect(refreshBtn);
         
         header.getChildren().addAll(titleSection, spacer, actions);
@@ -309,5 +312,13 @@ public class DashboardView {
     
     public VBox getRoot() {
         return root;
+    }
+    
+    public javafx.scene.control.Button getNewEmailBtn() {
+        return newEmailBtn;
+    }
+    
+    public javafx.scene.control.Button getRefreshBtn() {
+        return refreshBtn;
     }
 }

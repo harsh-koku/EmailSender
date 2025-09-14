@@ -217,6 +217,26 @@ public class AnimationUtils {
     }
     
     /**
+     * Click effect animation (quick scale down and back up)
+     */
+    public static ParallelTransition addClickEffect(Node node) {
+        ScaleTransition scaleDown = new ScaleTransition(Duration.millis(100), node);
+        scaleDown.setToX(0.95);
+        scaleDown.setToY(0.95);
+        scaleDown.setInterpolator(Interpolator.EASE_IN);
+        
+        ScaleTransition scaleUp = new ScaleTransition(Duration.millis(100), node);
+        scaleUp.setToX(1.0);
+        scaleUp.setToY(1.0);
+        scaleUp.setInterpolator(Interpolator.EASE_OUT);
+        
+        SequentialTransition clickSequence = new SequentialTransition(scaleDown, scaleUp);
+        
+        // Return as ParallelTransition for consistency with other methods
+        return new ParallelTransition(clickSequence);
+    }
+    
+    /**
      * Staggered animation for multiple nodes
      */
     public static SequentialTransition staggeredEntrance(Node... nodes) {
