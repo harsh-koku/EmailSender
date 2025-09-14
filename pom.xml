@@ -15,7 +15,7 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <javafx.version>20</javafx.version> <!-- works with Java 17+ -->
-        <exec.mainClass>org.example.MainApp</exec.mainClass> <!-- updated to your JavaFX entry point -->
+        <exec.mainClass>org.example.EmailSenderApp</exec.mainClass> <!-- Single entry point for both GUI and console modes -->
     </properties>
 
     <dependencies>
