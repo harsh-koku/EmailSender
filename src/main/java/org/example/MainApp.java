@@ -15,6 +15,9 @@ import org.example.views.MainView;
 /**
  * Modern JavaFX Email Sender Application
  * Features: Responsive design, animations, theme switching, glassmorphism UI
+ * Features: Responsive design, animations, theme switching, glassmorphism UI
+ * Features: Responsive design, animations, theme switching, glassmorphism UI
+ * Features: Responsive design, animations, theme switching, glassmorphism UI
  */
 public class MainApp extends Application {
     
@@ -68,10 +71,16 @@ public class MainApp extends Application {
         primaryStage.setMinWidth(MIN_WIDTH);
         primaryStage.setMinHeight(MIN_HEIGHT);
         
-        // Center on screen
+        // Force center on PRIMARY screen
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        primaryStage.setX((screenBounds.getWidth() - MIN_WIDTH) / 2);
-        primaryStage.setY((screenBounds.getHeight() - MIN_HEIGHT) / 2);
+        double centerX = screenBounds.getMinX() + (screenBounds.getWidth() - MIN_WIDTH) / 2;
+        double centerY = screenBounds.getMinY() + (screenBounds.getHeight() - MIN_HEIGHT) / 2;
+        
+        primaryStage.setX(centerX);
+        primaryStage.setY(centerY);
+        
+        System.out.println("Screen bounds: " + screenBounds);
+        System.out.println("Window will be at: " + centerX + ", " + centerY);
         
         // Set application icon (you can add an icon file later)
         try {
@@ -85,10 +94,30 @@ public class MainApp extends Application {
     }
     
     private void showWithAnimation() {
-        primaryStage.setOpacity(0.0);
+        // Force window to be visible and in front
+        primaryStage.setAlwaysOnTop(true);
+        primaryStage.setOpacity(1.0); // Start fully visible
         primaryStage.show();
+        primaryStage.toFront();
+        primaryStage.requestFocus();
         
-        // Fade-in animation
+        // Debug output
+        System.out.println("=== WINDOW OPENED ===");
+        System.out.println("Window position: " + primaryStage.getX() + ", " + primaryStage.getY());
+        System.out.println("Window size: " + primaryStage.getWidth() + " x " + primaryStage.getHeight());
+        System.out.println("Window visible: " + primaryStage.isShowing());
+        System.out.println("====================");
+        
+        // Remove always on top after 2 seconds
+        javafx.animation.Timeline removeOnTop = new javafx.animation.Timeline(
+            new javafx.animation.KeyFrame(javafx.util.Duration.seconds(2), e -> {
+                primaryStage.setAlwaysOnTop(false);
+            })
+        );
+        removeOnTop.play();
+        
+        // Optional: Fade-in animation (disabled for debugging)
+        /*
         javafx.animation.FadeTransition fadeIn = new javafx.animation.FadeTransition(
             javafx.util.Duration.millis(800), primaryStage.getScene().getRoot()
         );
@@ -102,6 +131,7 @@ public class MainApp extends Application {
         
         stageOpacity.play();
         fadeIn.play();
+        */
     }
     
     public static void main(String[] args) {

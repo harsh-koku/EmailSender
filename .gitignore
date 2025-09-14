@@ -137,6 +137,9 @@ Temporary Items
 ## User settings and history (exclude personal data)
 /EmailSender/
 ~/.EmailSender/
+# User data stored in home directory (Windows)
+EmailSender/
+**/EmailSender/
 
 ## Temporary files
 *.tmp

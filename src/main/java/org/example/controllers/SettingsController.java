@@ -116,9 +116,6 @@ public class SettingsController {
         // Apply theme changes immediately
         applyThemeSettings();
         
-        // Set environment variables for email settings
-        updateEnvironmentVariables();
-        
         view.setStatusText("Settings saved successfully!");
         showAlert(Alert.AlertType.INFORMATION, "Settings Saved", 
             "All settings have been saved successfully. Email settings will be used for sending emails.");
@@ -236,17 +233,6 @@ public class SettingsController {
         themeManager.setDarkTheme(darkTheme);
     }
     
-    private void updateEnvironmentVariables() {
-        // Note: Setting environment variables at runtime in Java doesn't affect the system
-        // Instead, we'll store them in the settings and use them from there
-        // The MailSender class will need to be updated to use these settings
-        String senderEmail = (String) currentSettings.get("senderEmail");
-        String emailPassword = (String) currentSettings.get("emailPassword");
-        
-        // These would typically be set as system properties or passed to the MailSender
-        System.setProperty("EMAIL_SENDER", senderEmail != null ? senderEmail : "");
-        System.setProperty("EMAIL_PASSWORD", emailPassword != null ? emailPassword : "");
-    }
     
     private boolean validateAllFields() {
         return validateEmailFields() && validatePortField();

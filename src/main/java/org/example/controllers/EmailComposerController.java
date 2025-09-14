@@ -9,6 +9,7 @@ import org.example.MailSender;
 import org.example.models.Contact;
 import org.example.models.EmailHistory;
 import org.example.models.EmailTemplate;
+import org.example.utils.DataManager;
 import org.example.views.EmailComposerView;
 
 import java.io.File;
@@ -26,11 +27,13 @@ public class EmailComposerController {
     private final EmailComposerView view;
     private final List<EmailTemplate> templates;
     private final List<EmailHistory> emailHistory;
+    private final DataManager dataManager;
     
     public EmailComposerController(EmailComposerView view) {
         this.view = view;
         this.templates = new ArrayList<>();
         this.emailHistory = new ArrayList<>();
+        this.dataManager = new DataManager();
         initialize();
         loadSampleTemplates();
     }
@@ -156,13 +159,15 @@ public class EmailComposerController {
             return;
         }
         
-        // Check email credentials
-        String senderEmail = System.getenv("EMAIL_SENDER");
-        String emailPassword = System.getenv("EMAIL_PASSWORD");
+        // Get email credentials from settings only
+        String senderEmail = getEmailCredentialFromSettings("senderEmail");
+        String emailPassword = getEmailCredentialFromSettings("emailPassword");
         
-        if (senderEmail == null || emailPassword == null) {
+        if (senderEmail == null || senderEmail.isEmpty() || emailPassword == null || emailPassword.isEmpty()) {
             showAlert("Configuration Error", 
-                "Email credentials not configured. Please set EMAIL_SENDER and EMAIL_PASSWORD environment variables.");
+                "Email credentials not configured.\n\n" +
+                "Please configure your email settings in the Settings tab.\n\n" +
+                "For Gmail: Enable 2FA and use an App Password");
             return;
         }
         
@@ -176,10 +181,10 @@ public class EmailComposerController {
         history.setSentAt(LocalDateTime.now());
         
         // Start sending process
-        sendEmailsAsync(subject, content, recipients, history);
+        sendEmailsAsync(subject, content, recipients, history, senderEmail, emailPassword);
     }
     
-    private void sendEmailsAsync(String subject, String content, List<Contact> recipients, EmailHistory history) {
+    private void sendEmailsAsync(String subject, String content, List<Contact> recipients, EmailHistory history, String senderEmail, String emailPassword) {
         view.showProgress(true);
         view.setProgress(0.0);
         view.setStatusText("Sending emails...");
@@ -199,8 +204,16 @@ public class EmailComposerController {
                         // Personalize content
                         String personalizedContent = personalizeContent(content, contact);
                         
-                        // Send email using static method
-                        MailSender.sendMail(contact.getEmail(), subject, personalizedContent);
+                        // Get email settings
+                        var settings = dataManager.loadSettings();
+                        String smtpHost = (String) settings.get("smtpHost");
+                        String smtpPort = (String) settings.get("smtpPort");
+                        boolean enableSSL = (Boolean) settings.get("enableSSL");
+                        boolean enableSTARTTLS = (Boolean) settings.get("enableSTARTTLS");
+                        
+                        // Send email using static method with settings
+                        MailSender.sendMail(contact.getEmail(), subject, personalizedContent, 
+                                          senderEmail, emailPassword, smtpHost, smtpPort, enableSSL, enableSTARTTLS);
                         successful++;
                         
                         Platform.runLater(() -> {
@@ -293,7 +306,7 @@ public class EmailComposerController {
             .toList();
         
         EmailHistory draft = new EmailHistory(subject, content, recipientEmails, 
-            System.getenv("EMAIL_SENDER"));
+            getEmailCredentialFromSettings("senderEmail"));
         draft.setStatus(EmailHistory.Status.DRAFT);
         
         emailHistory.add(draft);
@@ -350,6 +363,25 @@ public class EmailComposerController {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    
+    /**
+     * Get email credential from settings file only
+     */
+    private String getEmailCredentialFromSettings(String settingsKey) {
+        try {
+            var settings = dataManager.loadSettings();
+            if (settings.containsKey(settingsKey)) {
+                String settingsValue = settings.get(settingsKey).toString();
+                if (settingsValue != null && !settingsValue.trim().isEmpty()) {
+                    return settingsValue.trim();
+                }
+            }
+        } catch (Exception e) {
+            System.err.println("Error reading settings: " + e.getMessage());
+        }
+        
+        return null;
     }
     
     // Getters for accessing data from other controllers

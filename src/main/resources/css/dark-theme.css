@@ -212,6 +212,209 @@
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 1);
 }
 
+/* Text Visibility Fixes for Dark Theme */
+.title-1, .title-2, .title-3 {
+    -fx-text-fill: #f8fafc !important;
+}
+
+.body-large, .body-medium, .body-small {
+    -fx-text-fill: #cbd5e1 !important;
+}
+
+.caption {
+    -fx-text-fill: #94a3b8 !important;
+}
+
+/* Form Controls */
+.modern-text-field {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #475569;
+    -fx-prompt-text-fill: #94a3b8;
+}
+
+.modern-text-field:focused {
+    -fx-border-color: #3b82f6;
+    -fx-background-color: #334155;
+}
+
+.modern-text-area {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #475569;
+}
+
+.modern-text-area:focused {
+    -fx-border-color: #3b82f6;
+    -fx-background-color: #334155;
+}
+
+/* Labels and Status Text */
+.settings-label {
+    -fx-text-fill: #cbd5e1 !important;
+}
+
+.status-text {
+    -fx-text-fill: #94a3b8 !important;
+}
+
+.help-text {
+    -fx-text-fill: #94a3b8 !important;
+}
+
+/* Glass Cards */
+.glass-card {
+    -fx-background-color: rgba(30, 41, 59, 0.8);
+    -fx-border-color: rgba(71, 85, 105, 0.3);
+}
+
+.glass-card-hover:hover {
+    -fx-background-color: rgba(30, 41, 59, 0.9);
+    -fx-border-color: rgba(71, 85, 105, 0.4);
+}
+
+/* List View */
+.modern-list-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #475569;
+}
+
+.modern-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #f8fafc;
+}
+
+.modern-list-view .list-cell:selected {
+    -fx-background-color: rgba(59, 130, 246, 0.2);
+    -fx-text-fill: #f8fafc;
+}
+
+.modern-list-view .list-cell:hover {
+    -fx-background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Contact cells */
+.contact-name {
+    -fx-text-fill: #f8fafc !important;
+}
+
+.contact-email {
+    -fx-text-fill: #94a3b8 !important;
+}
+
+/* Table styling */
+.modern-table-view {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #475569;
+}
+
+.modern-table-view .column-header {
+    -fx-background-color: #334155;
+    -fx-text-fill: #cbd5e1;
+}
+
+.modern-table-view .table-cell {
+    -fx-text-fill: #f8fafc;
+}
+
+/* Tooltip */
+.tooltip {
+    -fx-background-color: #0f172a;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #475569;
+    -fx-border-width: 1px;
+}
+
+/* Tab Pane */
+.tab-pane .tab {
+    -fx-background-color: #374151;
+    -fx-text-fill: #cbd5e1;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #1e293b;
+    -fx-text-fill: #f8fafc;
+    -fx-border-color: #3b82f6 #3b82f6 transparent #3b82f6;
+}
+
+/* CheckBox and RadioButton */
+.modern-check-box {
+    -fx-text-fill: #f8fafc;
+}
+
+.modern-check-box .box {
+    -fx-background-color: #1e293b;
+    -fx-border-color: #475569;
+}
+
+.modern-check-box:selected .box {
+    -fx-background-color: #3b82f6;
+    -fx-border-color: #3b82f6;
+}
+
+.modern-radio-button {
+    -fx-text-fill: #f8fafc;
+}
+
+/* Menu styling */
+.modern-menu-bar {
+    -fx-background-color: #1e293b;
+    -fx-border-color: transparent transparent #475569 transparent;
+}
+
+.modern-menu-bar .menu {
+    -fx-text-fill: #f8fafc;
+}
+
+.modern-menu-bar .menu:hover {
+    -fx-background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Progress Bar */
+.modern-progress-bar {
+    -fx-background-color: #374151;
+}
+
+.modern-progress-bar .bar {
+    -fx-background-color: #3b82f6;
+}
+
+/* Activity items */
+.activity-item {
+    -fx-background-color: transparent;
+}
+
+.activity-item-hover {
+    -fx-background-color: rgba(59, 130, 246, 0.05);
+}
+
+/* File status labels */
+.file-status {
+    -fx-text-fill: #94a3b8 !important;
+}
+
+.file-selected {
+    -fx-text-fill: #10b981 !important;
+}
+
+/* Section titles */
+.section-title {
+    -fx-text-fill: #f8fafc !important;
+}
+
+/* App title */
+.app-title {
+    -fx-text-fill: #f8fafc !important;
+}
+
+.app-name {
+    -fx-text-fill: #f8fafc !important;
+}
+
+.app-description {
+    -fx-text-fill: #cbd5e1 !important;
+}
+
 /* Icon Styling */
 .icon-success { -fx-text-fill: -fx-success; }
 .icon-warning { -fx-text-fill: -fx-warning; }

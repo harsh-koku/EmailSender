@@ -137,17 +137,22 @@ public class DataManager {
      */
     public Map<String, Object> loadSettings() {
         Path settingsFile = dataDirectory.resolve(SETTINGS_FILE);
+        Map<String, Object> defaultSettings = getDefaultSettings();
         
         if (!Files.exists(settingsFile)) {
-            return getDefaultSettings();
+            return defaultSettings;
         }
         
         try {
-            return objectMapper.readValue(settingsFile.toFile(), 
+            Map<String, Object> loadedSettings = objectMapper.readValue(settingsFile.toFile(), 
                 new TypeReference<Map<String, Object>>() {});
+            
+            // Merge loaded settings with defaults to ensure all keys exist
+            defaultSettings.putAll(loadedSettings);
+            return defaultSettings;
         } catch (IOException e) {
             System.err.println("Failed to load settings: " + e.getMessage());
-            return getDefaultSettings();
+            return defaultSettings;
         }
     }
     
